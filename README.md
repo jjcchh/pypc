@@ -1,1 +1,3 @@
-"# pypc"  git init git add README.md git commit -m "first commit" git branch -M main git remote add origin https://github.com/jjcchh/pypc.git git push -u origin main
+Code for PYPC 2023
+- Round 1 Matlab code for Google search analytics and manual Amazon product tabulation
+- Final round Python code for market fragmentation analysis
