@@ -39,22 +39,22 @@ def scrape_data(base_url):
     for listing in product_listings:
         product = {}
 
-        product["title"] = listing.find("h2", {"class": "a-size-mini"}).text.strip()
+        product["Title"] = listing.find("h2", {"class": "a-size-mini"}).text.strip()
 
         try:
-            product["price"] = listing.find("span", {"class": "a-price-whole"}).text.strip() + listing.find("span", {"class": "a-price-fraction"}).text.strip()
+            product["Price"] = listing.find("span", {"class": "a-price-whole"}).text.strip() + listing.find("span", {"class": "a-price-fraction"}).text.strip()
         except AttributeError:
-            product["price"] = "N/A"
+            product["Price"] = "N/A"
 
         try:
-            product["rating"] = listing.find("span", {"class": "a-icon-alt"}).text.strip().split()[0]
+            product["Rating"] = listing.find("span", {"class": "a-icon-alt"}).text.strip().split()[0]
         except AttributeError:
-            product["rating"] = "N/A"
+            product["Rating"] = "N/A"
 
         try:
-            product["num_reviews"] = listing.find("span", {"class": "a-size-base s-underline-text"}).text.strip().split()[0]
+            product["Num_Reviews"] = (listing.find("span", {"class": "a-size-base s-underline-text"}).text.strip().split()[0]).replace('(','').replace(')','') 
         except AttributeError:
-            product["num_reviews"] = "N/A"
+            product["Num_Reviews"] = "N/A"
 
         products.append(product)
 
